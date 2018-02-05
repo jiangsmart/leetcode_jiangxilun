@@ -60,9 +60,77 @@ def insert_sort(arr):
 
 # 希尔排序
 
-# 归并排序
+#归并排序
+def merge_sort(arr):
+    length = len(arr)
+    if length > 1:
+        mid = length / 2
+        left = merge_sort(arr[:mid])
+        right = merge_sort(arr[mid:])
+        return merge(left, right)
+    else:
+        return arr
+
+
+def merge(arr1, arr2):
+    # if arr1 is None:
+    #     return arr2
+    # if arr2 is None:
+    #     return arr1
+    res = []
+    length1 = len(arr1)
+    length2 = len(arr2)
+    i1, i2 = 0, 0
+    while i1 < length1 and i2 < length2:
+        if arr1[i1] <= arr2[i2]:
+            res.append(arr1[i1])
+            i1 += 1
+        else:
+            res.append(arr2[i2])
+            i2 += 1
+    if not i1 < length1:
+        while i2 < length2:
+            res.append(arr2[i2])
+            i2 += 1
+    elif not i2 < length2:
+        while i1 < length1:
+            res.append(arr1[i1])
+            i1 += 1
+    return res
+# def merge(left, right):
+#     i, j = 0, 0
+#     result = []
+#     while i < len(left) and j < len(right):
+#         if left[i] <= right[j]:
+#             result.append(left[i])
+#             i += 1
+#         else:
+#             result.append(right[j])
+#             j += 1
+#     result += left[i:]
+#     result += right[j:]
+#     return result
+#
+#
+# def merge_sort(lists):
+#     # 归并排序
+#     if len(lists) <= 1:
+#         return lists
+#     num = len(lists) / 2
+#     print len(lists)
+#     print num
+#     left = merge_sort(lists[:num])
+#     right = merge_sort(lists[num:])
+#     return merge(left, right)
+
+
+
 nums2 = nums[:]
-insert_sort(nums2)
+nums2 = merge_sort(nums2)
+# insert_sort(nums2)
 # quicksort(nums2, tail=len(nums))
+print "nums:"
 print nums
+print "nums2:"
 print nums2
+
