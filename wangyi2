@@ -1,0 +1,22 @@
+length = raw_input()
+nums = raw_input()
+length = int(length)
+if length == 1:
+    print "Possible"
+if length == 0:
+    print "Impossible"
+nums = nums.split(' ')
+num_list = []
+for num in nums:
+    num_list.append(int(num))
+num_list.sort()
+s = num_list[1] - num_list[0]
+flag = 0
+for i in range(1, length - 1):
+    if num_list[i + 1] - num_list[i] != s:
+        flag = 1
+        break
+if flag == 0:
+    print "Possible"
+else:
+    print "Impossible"
