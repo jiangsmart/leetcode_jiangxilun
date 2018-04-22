@@ -60,7 +60,8 @@ def pailie2(arr, history, res):
         pailie2(temp, history + [arr[i]], res)
     return
 
-
+a=1
+print a
 res = []
 nums = range(3)
 # fun([nums, 30, res)
