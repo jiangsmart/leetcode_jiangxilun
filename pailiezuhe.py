@@ -1,3 +1,20 @@
+# -*- coding:utf-8 -*-
+class Solution:
+    def Permutation(self, ss):
+        if ss == "":
+            return []
+        res = []
+        self.quanpailie(ss, [], res)
+        return res
+
+    def quanpailie(self, ss, history, res):
+        if len(history) == len(ss):
+            res.append("".join(history))
+        for c in ss:
+            if c not in history:
+                self.quanpailie(ss, history + [c], res)
+
+
 def fun(arr, sum, res):
     arr.sort()
     history = []
@@ -60,12 +77,8 @@ def pailie2(arr, history, res):
         pailie2(temp, history + [arr[i]], res)
     return
 
-a=1
-print a
-res = []
-nums = range(3)
-# fun([nums, 30, res)
-# quanzuhe(nums, res)
-quanpailie(nums, res)
-print res
-print len(res)
+
+if __name__ == '__main__':
+    s = Solution()
+    r = s.Permutation("abs")
+    print r

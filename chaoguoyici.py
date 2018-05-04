@@ -4,20 +4,21 @@ class Solution:
     # 函数返回True/False
     def duplicate(self, numbers, duplication):
         # write code here
-        m=len(numbers)-1
+        m = len(numbers) - 1
         for i in numbers:
-            if i>m:
-                ii=i-m-1
+            if i > m:
+                ii = i - m - 1
             else:
-                ii=i
-            if numbers[ii]>m:
-                duplication[0]=ii
+                ii = i
+            if numbers[ii] > m:
+                duplication[0] = ii
                 return True
             else:
-                numbers[ii]+=(m+1)
+                numbers[ii] += (m + 1)
         return False
 
 
 res = [-1]
-print duplicate([2, 1, 3, 0, 4], res)
+s = Solution()
+print s.duplicate([2, 1, 3, 0, 4], res)
 print res
