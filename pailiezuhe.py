@@ -80,5 +80,7 @@ def pailie2(arr, history, res):
 
 if __name__ == '__main__':
     s = Solution()
-    r = s.Permutation("abs")
+    r=[]
+    c = [1,2,3]
+    quanpailie(c, r)
     print r
